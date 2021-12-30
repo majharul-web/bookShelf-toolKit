@@ -10,7 +10,7 @@ const ReadingList = () => {
         <PageLayout>
             {readingList.length === 0 && <p>Looks like you've finished all your books! Check them out in your <Link to="finish">finished books</Link> or <Link to="/">discover more</Link>.</p>}
             {
-                readingList.map((book) => (<Book key={book.id} book={book} />))
+                readingList?.map((book) => (<Book key={book.id} book={book} type={'readingList'} />))
             }
         </PageLayout>
     );

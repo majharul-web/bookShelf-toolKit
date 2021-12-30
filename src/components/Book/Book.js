@@ -1,15 +1,16 @@
 import React from "react";
-import { addToReadingList } from '../../redux/slieces/bookSlices'
+import { addToFinishList, addToReadingList, removeFormFinishList, removeFormReadingList } from '../../redux/slieces/bookSlices'
 import {
   HiPlusCircle,
-  // HiMinusCircle,
-  // HiCheckCircle 
+  HiMinusCircle,
+  HiCheckCircle
 } from 'react-icons/hi';
 import { useDispatch } from "react-redux";
 import styles from './book.module.css'
 
 const SingleBook = (props) => {
   const { title, author, coverImageUrl, synopsis } = props.book;
+  console.log(props.type);
   const dispatch = useDispatch();
 
   return (
@@ -29,9 +30,30 @@ const SingleBook = (props) => {
         </div>
       </div>
       <div className={styles.control_icons} >
-        {/* <HiMinusCircle title="Remove from list" className={styles.minus_icon} /> */}
-        <HiPlusCircle title="Add to Reading" onClick={() => dispatch(addToReadingList(props.book))} className={styles.plus_icon} />
-        {/* <HiCheckCircle title="Mark as Finish" className={styles.check_icon} /> */}
+
+        {
+          props.type === 'readingList' ?
+            <>
+              <HiMinusCircle title="Remove from list"
+                onClick={() => dispatch(removeFormReadingList(props.book))}
+                className={styles.minus_icon} />
+
+              <HiCheckCircle title="Mark as Finish"
+                onClick={() => dispatch(addToFinishList(props.book))}
+                className={styles.check_icon} />
+            </>
+            :
+            props.type === 'finishList' ?
+              <HiMinusCircle title="Remove from list"
+                onClick={() => dispatch(removeFormFinishList(props.book))}
+                className={styles.minus_icon} />
+              :
+              <HiPlusCircle title="Add to Reading"
+                onClick={() => dispatch(addToReadingList(props.book))}
+                className={styles.plus_icon} />
+        }
+
+
       </div>
     </div>
   );
