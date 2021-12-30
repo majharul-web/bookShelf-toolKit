@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Book from '../components/Book/Book';
-import books from '../fakeData/books.json'
 import PageLayout from '../components/PageLayout/PageLayout';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBooks } from '../redux/slieces/bookSlices';
 const Discover = () => {
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchBooks());
+    }, [])
+
+    const books = useSelector((state) => state.books.discover);
     return (
         <PageLayout>
             {
