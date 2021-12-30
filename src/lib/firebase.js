@@ -2,13 +2,14 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCeqFE1BwexeU8bisIm7aMt8szgMmAXSwQ",
-  authDomain: "bookshelf-9e271.firebaseapp.com",
-  projectId: "bookshelf-9e271",
-  storageBucket: "bookshelf-9e271.appspot.com",
-  messagingSenderId: "188481056655",
-  appId: "1:188481056655:web:488b42a4bc59aaace825fa"
+  apiKey: "AIzaSyDh6wGE6U7OoMP5oAendf1_mKDxUycXS60",
+  authDomain: "bookshelf-b4632.firebaseapp.com",
+  projectId: "bookshelf-b4632",
+  storageBucket: "bookshelf-b4632.appspot.com",
+  messagingSenderId: "984267962173",
+  appId: "1:984267962173:web:bbab6ce5ff13d32188f754"
 };
 
 if (!firebase.apps.length) {
